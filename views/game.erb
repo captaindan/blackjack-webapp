@@ -1,5 +1,11 @@
+<div id="game">
+   <%if @loser %>
+      <div class="alert alert-error"><%=@loser%></div>
+    <% end %>
+    <% if @winner %>
+    <div class="alert alert-success"><%=@winner%></div>
+    <% end %>
 <h1>Blackjack</h1>
-<p> Welcome <%= session[:player_name] %></p>
 
 <% if @play_again %>
 <p>
@@ -31,7 +37,7 @@
 
 <br/>
 
-<div class="well">
+<div id="player_cards" class="well">
   <h4><%= session[:player_name] %>'s cards:</h4>
   <% session[:player_cards].each do |card| %>
     <%= display_card_images(card) %>
@@ -53,3 +59,4 @@
   <% end %>
 
   </p>
+</div>
